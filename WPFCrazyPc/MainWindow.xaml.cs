@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Effects;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace WPFCrazyPc
 {
@@ -29,10 +31,11 @@ namespace WPFCrazyPc
         public static int timesClicked = 0;
         bool gameRunning = true;
         
+
         public MainWindow()
         {
             InitializeComponent();
-
+            
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
@@ -42,13 +45,7 @@ namespace WPFCrazyPc
 
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            GameRunning();
-            /*
-            while (gameRunning == true)
-            {
-
-            }
-            */
+            GameRunning();   
         }
 
         private void ColorTheme_Click(object sender, RoutedEventArgs e)
@@ -61,11 +58,14 @@ namespace WPFCrazyPc
             {
                 xChaserButton.Visibility = Visibility.Visible;
             }
+            Thread thr = new Thread(UpdateTime);
+            thr.Start();
             
         }
 
         private void xChaserButtonClick(object sender, RoutedEventArgs e)
         {
+
             timesClicked++;
             if (timesClicked > 1 && timesClicked < 5)
             {
@@ -83,27 +83,45 @@ namespace WPFCrazyPc
             {
 
             }  
-            var watch = new Stopwatch();
+            
 
             
-            if (timesClicked == 1)
-            {
-                watch.Start();
-            }
-            if (timesClicked == 20)
-            {
-                watch.Stop();
-                xChaserButton.Visibility = Visibility.Hidden;
-                gameRunning = false;
-            }
-
-
-            TimeSpan ts = watch.Elapsed;
-            stopwtchTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-            xGamerTime.Text = ("Time: " + stopwtchTime);
+            
+            
             xPlayersScore.Text = Convert.ToString(timesClicked);
+        }
+        public void UpdateTime()
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                
+             var watch = new Stopwatch();
+                
+               
+
+                if (timesClicked == 1)
+                {
+                    watch.Start();
+                }
+                if (timesClicked == 20)
+                {
+                    watch.Stop();
+                    xChaserButton.Visibility = Visibility.Hidden;
+                    gameRunning = false;
+                }
+
+
+
+                TimeSpan ts = watch.Elapsed;
+                stopwtchTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+
+                xGamerTime.Text = ("Time: " + stopwtchTime);
+            });
+
+            
+
         }
     }
 }
