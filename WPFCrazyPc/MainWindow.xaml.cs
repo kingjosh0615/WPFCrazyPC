@@ -113,16 +113,7 @@ namespace WPFCrazyPc
             {
 
                 var watch = new Stopwatch();
-
-
-
-                
-
-
-
-
-
-                
+  
             });
 
 
