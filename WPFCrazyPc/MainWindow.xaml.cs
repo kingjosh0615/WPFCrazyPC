@@ -20,9 +20,11 @@ namespace WPFCrazyPc
     /// </summary>
     public partial class MainWindow : Window
     {
+        string gamer = "gamer";
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
