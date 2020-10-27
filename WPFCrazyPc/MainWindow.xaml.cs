@@ -26,5 +26,15 @@ namespace WPFCrazyPc
             InitializeComponent();
 
         }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void Start_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

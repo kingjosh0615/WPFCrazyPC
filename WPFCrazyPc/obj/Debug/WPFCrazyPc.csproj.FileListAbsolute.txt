@@ -1,0 +1,15 @@
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\bin\Debug\WPFCrazyPc.exe.config
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\bin\Debug\WPFCrazyPc.exe
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\bin\Debug\WPFCrazyPc.pdb
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.csprojAssemblyReference.cache
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\MainWindow.g.cs
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\App.g.cs
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc_MarkupCompile.cache
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc_MarkupCompile.lref
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\MainWindow.baml
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.g.resources
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.Properties.Resources.resources
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.csproj.GenerateResource.cache
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.csproj.CoreCompileInputs.cache
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.exe
+C:\Users\WILES_JOSHUA\source\repos\WPFCrazyPc\WPFCrazyPc\obj\Debug\WPFCrazyPc.pdb
