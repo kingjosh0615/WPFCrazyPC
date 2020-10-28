@@ -71,19 +71,72 @@ namespace WPFCrazyPc
 
         private void xChaserButtonClick(object sender, RoutedEventArgs e)
         {
+            Random rand = new Random();
+
+            int buttonRowPosition = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 8))));
+            int buttonColumnPosition = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 15))));
+            int buttonRowSpan;
+            int buttonColumnSpan;
+            double buttonVerticalSubtraction = 0;
+            double buttonHorizontalSubtraction = 0;
+
 
             timesClicked++;
             if (timesClicked > 1 && timesClicked < 5)
             {
+                if (buttonColumnPosition < 15 && buttonColumnPosition > 12)
+                {
+                    buttonColumnSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 4))));
+                }
+                else if (buttonColumnPosition < 15 && buttonColumnPosition > 13)
+                {
+                    buttonColumnSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 3))));
+                }
+                else if (buttonColumnPosition <= 15 || buttonColumnPosition >= 14)
+                {
+                    buttonColumnSpan = 1;
+                }
 
+                if (buttonRowPosition < 7 && buttonRowPosition > 4)
+                {
+                    buttonRowSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 4))));
+                }
+                else if (buttonRowPosition < 7 && buttonRowPosition > 5)
+                {
+                    buttonRowSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 3))));
+                }
+                else if (buttonRowPosition <= 7 || buttonRowPosition >= 6)
+                {
+                    buttonRowSpan = 1;
+                }
             }
             else if (timesClicked >= 5 && timesClicked < 10)
             {
+                if (buttonColumnPosition < 15 && buttonColumnPosition > 13)
+                {
+                    buttonColumnSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 3))));
+                }
+                else if (buttonColumnPosition <= 15 || buttonColumnPosition >= 14)
+                {
+                    buttonColumnSpan = 1;
+                }
+
+                if (buttonRowPosition < 7 && buttonRowPosition > 5)
+                {
+                    buttonRowSpan = Convert.ToInt32(Math.Floor(Convert.ToDouble(rand.Next(0, 3))));
+                }
+                else if (buttonRowPosition <= 7 || buttonRowPosition >= 6)
+                {
+                    buttonRowSpan = 1;
+                }
 
             }
             else if (timesClicked >= 10 && timesClicked < 15)
             {
+                buttonColumnSpan = 1;
+                buttonRowSpan = 1;
 
+                
             }
             else if (timesClicked >= 15 && timesClicked < 20)
             {
@@ -102,10 +155,20 @@ namespace WPFCrazyPc
 
             }
 
+            buttonHorizontalSubtraction = Math.Floor(Convert.ToDouble(rand.Next(0, 48)));
+            buttonVerticalSubtraction = Math.Floor(Convert.ToDouble(rand.Next(0, 24)));
+
+
+            double buttonCurrentHeight = xChaserButton.Height;
+            double buttonCurrentWidth = xChaserButton.Width;
+            xChaserButton.Height = buttonCurrentHeight - buttonVerticalSubtraction;
+            xChaserButton.Width = buttonCurrentWidth - buttonHorizontalSubtraction;
 
 
 
             xPlayersScore.Text = Convert.ToString(timesClicked);
+            xChaserButton.SetValue(Grid.RowProperty, 4);
+            xChaserButton.SetValue(Grid.ColumnProperty, 4);
         }
         public void UpdateTime()
         {
