@@ -177,7 +177,12 @@ namespace WPFCrazyPc
             //oldTime = Convert.ToInt32(Regex.Replace(readLine1, "[^0-9]", ""));
             xCurrentHighScore.Text = ("The current highscore is: " + readLine1);
             oldTime = Convert.ToInt32(readLine1.Trim(charsToGetRidOf));
-            newPlayerTime 
+            newPlayerTime = Convert.ToInt32(currentTime.Trim(charsToGetRidOf));
+            if(oldTime > newPlayerTime)
+            {
+                xSelfHighScoreMessage.Visibility = Visibility.Visible;
+                xEnterPlayerName.Visibility = Visibility.Visible;
+            }
         }
     }
 }
