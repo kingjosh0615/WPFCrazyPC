@@ -24,6 +24,8 @@
             <TextBlock Text="Score: " Grid.Column="1" Grid.Row="1" FontSize="70" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 10"/>
             <TextBlock x:Name="xPlayersScore" Text="0" Grid.Column="2" Grid.Row="1" FontSize="70" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Grid.Column="0" Content="Start" Click="Start_Button_Click" Padding="5" FontSize="70"/>
+            <TextBlock x:Name="xPlayerTimeAchieved" Grid.Row="0" Grid.Column="1" Text="Nice Job! Your time is: " Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="60" Visibility="Hidden"/>
+            
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -56,7 +58,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="xGamerTime" Grid.Row="8" Grid.Column="10" Grid.ColumnSpan="2" Text="Time:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button x:Name="xChaserButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="5" Content="Click Me" FontSize="100" Visibility="Hidden" Click="xChaserButtonClick"/>
+            <Button x:Name="xChaserButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="4" Content="Click Me" FontSize="100" Visibility="Hidden" Click="xChaserButtonClick" Height="200" Width="400"/>
+            <TextBlock x:Name="xSelfHighScoreMessage" Grid.Row="5" Grid.Column="2" Text="You achieved the high score! Enter you name:" Grid.ColumnSpan="12" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="60" Visibility="Hidden"/>
+            <TextBox x:Name="xEnterPlayerName" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="4" FontSize="75" TextAlignment="Center" Visibility="Hidden"/>
+            <TextBlock x:Name="xCurrentHighScore" Text="The current highscore is: " Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="12" FontSize="40" TextAlignment="Center" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>
