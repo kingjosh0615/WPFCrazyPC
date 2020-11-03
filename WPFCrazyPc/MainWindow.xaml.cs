@@ -163,11 +163,11 @@ namespace WPFCrazyPc
         public void funnyScoreFunction()
         {
             string readLine1;
-            int oldTime = 0;
+            double oldTime = 0;
             int newPlayerTime;
             string newPlayerName;
             string oldPlayerName;
-            char[] charsToGetRidOf = { ':' , '[', ']'};
+            char[] charsToGetRidOf = { ':'};
 
 
             using (StreamReader sr = new StreamReader("highscore1.txt"))
@@ -176,13 +176,16 @@ namespace WPFCrazyPc
             }
             //oldTime = Convert.ToInt32(Regex.Replace(readLine1, "[^0-9]", ""));
             xCurrentHighScore.Text = ("The current highscore is: " + readLine1);
-            oldTime = Convert.ToInt32(readLine1.Trim(charsToGetRidOf));
-            newPlayerTime = Convert.ToInt32(currentTime.Trim(charsToGetRidOf));
+            //oldTime = Convert.ToDouble(readLine1.Trim(charsToGetRidOf));
+            oldTime = Convert.ToDouble(Regex.Replace(readLine1, @"(\s+|@|:|)", ""));
+            //newPlayerTime = Convert.ToInt32(currentTime.Trim(charsToGetRidOf));
+            /*
             if(oldTime > newPlayerTime)
             {
                 xSelfHighScoreMessage.Visibility = Visibility.Visible;
                 xEnterPlayerName.Visibility = Visibility.Visible;
             }
+            */
         }
     }
 }
