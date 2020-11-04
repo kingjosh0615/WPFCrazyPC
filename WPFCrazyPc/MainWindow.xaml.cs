@@ -166,7 +166,7 @@ namespace WPFCrazyPc
             double oldTime = 0;
             double newPlayerTime;
             string newPlayerName;
-            string oldPlayerName;
+            string oldPlayerName = "";
             char[] charsToGetRidOf = { ':'};
 
 
@@ -175,7 +175,7 @@ namespace WPFCrazyPc
                 readLine1 = sr.ReadLine();
             }
             //oldTime = Convert.ToInt32(Regex.Replace(readLine1, "[^0-9]", ""));
-            xCurrentHighScore.Text = ("The current highscore is: " + readLine1 + " by " + oldPlayerName)
+            xCurrentHighScore.Text = ("The current highscore is: " + readLine1 + " by " + oldPlayerName);
 
             oldTime = Convert.ToDouble(Regex.Replace(readLine1, @"(\s+|@|:|)", ""));
             newPlayerTime = Convert.ToDouble(Regex.Replace(currentTime, @"(\s+|@|:|)", ""));
@@ -184,7 +184,7 @@ namespace WPFCrazyPc
             {
                 xSelfHighScoreMessage.Visibility = Visibility.Visible;
                 xEnterPlayerName.Visibility = Visibility.Visible;
-                xCurrentHighScore
+                xCurrentHighScore.Visibility = Visibility.Visible;
             }
             
         }
