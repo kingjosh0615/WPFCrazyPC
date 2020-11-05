@@ -61,7 +61,6 @@
             <TextBlock x:Name="xSelfHighScoreMessage" Grid.Row="5" Grid.Column="1" Text="You achieved the high score! Enter you name and press start:" Grid.ColumnSpan="14" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Visibility="Hidden" />
             <TextBox x:Name="xEnterPlayerName" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="4" FontSize="75" TextAlignment="Center" Visibility="Hidden"/>
             <TextBlock x:Name="xCurrentHighScore" Text="The current highscore is: " Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="12" FontSize="40" TextAlignment="Center" Visibility="Hidden"/>
-
         </Grid>
     </Grid>
 </Window>
