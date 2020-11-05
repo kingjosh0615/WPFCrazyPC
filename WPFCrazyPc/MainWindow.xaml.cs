@@ -217,5 +217,15 @@ namespace WPFCrazyPc
             }
             
         }
+
+        private void xChaserButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            xChaserButton.Background = Brushes.Red;
+        }
+
+        private void xChaserButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            xChaserButton.Background = Brushes.Aqua;
+        }
     }
 }

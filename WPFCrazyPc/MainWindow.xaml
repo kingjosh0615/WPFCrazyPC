@@ -57,10 +57,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="xGamerTime" Grid.Row="8" Grid.Column="10" Grid.ColumnSpan="2" Text="Time:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button x:Name="xChaserButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="4" Content="Click Me" FontSize="100" Visibility="Hidden" Click="xChaserButtonClick" Height="200" Width="400"/>
-            <TextBlock x:Name="xSelfHighScoreMessage" Grid.Row="5" Grid.Column="1" Text="You achieved the high score! Enter you name and press start:" Grid.ColumnSpan="14" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Visibility="Hidden"/>
+            <Button x:Name="xChaserButton" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="4" Content="Click Me" FontSize="100" Visibility="Hidden" Click="xChaserButtonClick" Height="200" Width="400" Background="Aqua" MouseEnter="xChaserButton_MouseEnter" MouseLeave="xChaserButton_MouseLeave" />
+            <TextBlock x:Name="xSelfHighScoreMessage" Grid.Row="5" Grid.Column="1" Text="You achieved the high score! Enter you name and press start:" Grid.ColumnSpan="14" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Visibility="Hidden" />
             <TextBox x:Name="xEnterPlayerName" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="4" FontSize="75" TextAlignment="Center" Visibility="Hidden"/>
             <TextBlock x:Name="xCurrentHighScore" Text="The current highscore is: " Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="12" FontSize="40" TextAlignment="Center" Visibility="Hidden"/>
+
         </Grid>
     </Grid>
 </Window>
