@@ -34,6 +34,13 @@ namespace WPFCrazyPc
         string currentTime = string.Empty;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         Stopwatch stopWatch = new Stopwatch();
+        string readLine1;
+        string readLine2;
+        double oldTime = 0;
+        double newPlayerTime;
+        string newPlayerName;
+        string oldPlayerName = "";
+        char[] charsToGetRidOf = { ':' };
 
         public MainWindow()
         {
@@ -47,16 +54,39 @@ namespace WPFCrazyPc
         }
         private void Start_Button_Click(object sender, RoutedEventArgs e)
         {
-            GameRunning();
-        }
-        private void ColorTheme_Click(object sender, RoutedEventArgs e)
-        {
+            if (timesClicked != 30 && timesClicked > 0)
+            {
 
+            }
+            else if (timesClicked == 0)
+            {
+                GameRunning();
+            }
+            else if (timesClicked == 30 && oldTime > newPlayerTime)
+            {
+                newPlayerName = xEnterPlayerName.Text;
+
+                using (StreamWriter sw = new StreamWriter("highscore1.txt", append: false))
+                {
+                    sw.Write(currentTime);
+                }
+
+                using (StreamWriter sw = new StreamWriter("highscore2.txt", append: false))
+                {
+                    sw.Write(newPlayerName);
+                }
+
+                xEnterPlayerName.Visibility = Visibility.Hidden;
+                xCurrentHighScore.Visibility = Visibility.Hidden;
+                xStartButton.Visibility = Visibility.Hidden;
+                xGamerTime.Visibility = Visibility.Hidden;
+                xSelfHighScoreMessage.Text = "Congratulations new champion! You may press the exit button to leave.";
+            }
+            
         }
+
         public void GameRunning()
         {
-
-
             if (timesClicked == 0)
             {
                 xChaserButton.Visibility = Visibility.Visible;
@@ -65,7 +95,6 @@ namespace WPFCrazyPc
             }
             Thread thr = new Thread(UpdateTime);
             thr.Start();
-
         }
         private void xChaserButtonClick(object sender, RoutedEventArgs e)
         {
@@ -134,7 +163,6 @@ namespace WPFCrazyPc
         }
         void timer_Tick(object sender, EventArgs e)
         {
-
             if (stopWatch.IsRunning)
             {
                 TimeSpan ts = stopWatch.Elapsed;
@@ -162,29 +190,30 @@ namespace WPFCrazyPc
         }
         public void funnyScoreFunction()
         {
-            string readLine1;
-            double oldTime = 0;
-            double newPlayerTime;
-            string newPlayerName;
-            string oldPlayerName = "";
-            char[] charsToGetRidOf = { ':'};
-
-
+            
             using (StreamReader sr = new StreamReader("highscore1.txt"))
             {
                 readLine1 = sr.ReadLine();
             }
-            //oldTime = Convert.ToInt32(Regex.Replace(readLine1, "[^0-9]", ""));
-            xCurrentHighScore.Text = ("The current highscore is: " + readLine1 + " by " + oldPlayerName);
 
+            using (StreamReader sr = new StreamReader("highscore2.txt"))
+            {
+                readLine2 = sr.ReadLine();
+            }
+            
             oldTime = Convert.ToDouble(Regex.Replace(readLine1, @"(\s+|@|:|)", ""));
             newPlayerTime = Convert.ToDouble(Regex.Replace(currentTime, @"(\s+|@|:|)", ""));
 
-            if(oldTime > newPlayerTime)
+            oldPlayerName = readLine2;
+
+            xCurrentHighScore.Text = ("The current highscore is: " + readLine1 + " by " + oldPlayerName);
+            xCurrentHighScore.Visibility = Visibility.Visible;
+
+            if (oldTime > newPlayerTime)
             {
                 xSelfHighScoreMessage.Visibility = Visibility.Visible;
                 xEnterPlayerName.Visibility = Visibility.Visible;
-                xCurrentHighScore.Visibility = Visibility.Visible;
+                
             }
             
         }
